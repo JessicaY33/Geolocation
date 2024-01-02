@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation</title>
+</head>
+<body>
+    <h1>Geolocation Test</h1>
+    <p>This is a basic web server with Express</p>
+    <p>latitude: <span id = 'latitude'></span>&deg;<br /></p>
+    <p>longitude: <span id = 'longitude'></span>&deg;<br /></p>
+    <script>
+        if ("geolocation" in navigator) {
+            /* geolocation is available */
+            console.log('geolocation available');
+            navigator.geolocation.getCurrentPosition((position) => {
+            document.getElementById('latitude').innerHTML = position.coords.latitude;
+            document.getElementById('longitude').innerHTML = position.coords.longitude;});
+        }
+        else {
+            /* geolocation IS NOT available */
+            console.log('geolocation not available');
+        }
+    </script>
+</body>
+</html>
